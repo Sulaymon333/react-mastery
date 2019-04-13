@@ -16,12 +16,17 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // the only time we do direct assignment to our state is when we initialize it. otherwise never never
     this.state = { lat: null };
 
     // get latitude function is moved to the constructor to prevent double fetch when render() is called multiple times
     window.navigator.geolocation.getCurrentPosition(
       position => {
-        console.log(position);
+        // console.log(position);
+        // use setState() to update the state
+        this.setState({ lat: position.coords.latitude });
+        // never do this
+        // this.state.lat = position.coords.latitude;
       },
       err => {
         console.log(err);
@@ -29,7 +34,7 @@ class App extends React.Component {
     );
   }
   render() {
-    return <div>Latitude: </div>;
+    return <div>Latitude: {this.state.lat} </div>;
   }
 }
 
