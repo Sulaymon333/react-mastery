@@ -11,7 +11,7 @@ const App = () => {
       console.log(err);
     }
   );
-  return <div>Hello man</div>;
+  return <div>Hello class components</div>;
 };
 
 ReactDOM.render(<App />, document.querySelector('#root'));
