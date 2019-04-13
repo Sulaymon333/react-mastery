@@ -17,7 +17,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     // the only time we do direct assignment to our state is when we initialize it. otherwise never never
-    this.state = { lat: null };
+    this.state = { lat: null, errorMessage: '' };
 
     // get latitude function is moved to the constructor to prevent double fetch when render() is called multiple times
     window.navigator.geolocation.getCurrentPosition(
@@ -29,12 +29,20 @@ class App extends React.Component {
         // this.state.lat = position.coords.latitude;
       },
       err => {
-        console.log(err);
+        // console.log(err);
+        this.setState({
+          errorMessage: err.message
+        });
       }
     );
   }
   render() {
-    return <div>Latitude: {this.state.lat} </div>;
+    return (
+      <div>
+        Latitude: {this.state.lat} <br />
+        Error message: {this.state.errorMessage}
+      </div>
+    );
   }
 }
 
