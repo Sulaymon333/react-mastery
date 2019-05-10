@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Main from './Components/Main';
+import Counter from './Components/Counter';
+import Login from './Components/Login';
+import AddTodo from './Components/AddTodo';
+import AddUser from './Components/AddUser';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Main />
+      <hr />
+      <h3>Counter system</h3>
+      <Counter />
+      <hr />
+      <h3>Login system</h3>
+      <Login />
+      <hr />
+      <h3>Todo System</h3>
+      <AddTodo />
+      <hr />
+      <h3>Form data collection</h3>
+      <AddUser />
     </div>
   );
 }
