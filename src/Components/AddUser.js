@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputField from './InputField';
+import SelectField from './SelectField';
+import TextAreaField from './TextAreaField';
+
+const options = [
+  { label: '--Select Country---', value: '' },
+  { label: 'Finnish', value: 'Finnish' },
+  { label: 'Swedish', value: 'Swedish' },
+  { label: 'Danish', value: 'Danish' }
+];
 
 class AddUser extends Component {
   state = {
@@ -13,7 +22,9 @@ class AddUser extends Component {
       css: false,
       javascript: false,
       react: false
-    }
+    },
+    nationality: '',
+    message: ''
   };
 
   handleChange = e => {
@@ -40,6 +51,12 @@ class AddUser extends Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
+    this.setState({
+      firstName: '',
+      lastName: '',
+      age: '',
+      message: ''
+    });
   };
 
   render() {
@@ -118,7 +135,19 @@ class AddUser extends Component {
             onChange={this.handleChange}
           />
         </fieldset>
-        <button type="submit">Submit</button>
+
+        <fieldset>
+          <SelectField
+            options={options}
+            legend={'Choose your Nationality'}
+            id="nationality"
+            value={this.state.nationality}
+            onChange={this.handleChange}
+          />
+          <TextAreaField id="message" value={this.state.message} rows="10" cols="30" onChange={this.handleChange} />
+          <br />
+          <button type="submit">Submit</button>
+        </fieldset>
       </form>
     );
   }

@@ -33,7 +33,7 @@ class AddTodo extends Component {
       this.setState({
         feedback: 'You must input a valid input'
       });
-    } else if (this.state.todos.indexOf(this.state.todo) == -1) {
+    } else if (this.state.todos.indexOf(this.state.todo) === -1) {
       this.setState(prevState => ({
         todos: [...prevState.todos, this.state.todo]
       }));
