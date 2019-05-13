@@ -1,8 +1,8 @@
-# React basic concepts April-13-2019
+# React class component April-13-2019
 
-This is a personal study about the React class component. 
+This is a personal study about the React class component.
 
-I studied the following: 
+I studied the following:
 
 - Class based component
 - Container component / state based component
@@ -26,4 +26,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
-
