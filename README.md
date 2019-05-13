@@ -1,5 +1,7 @@
 # React class revision May-06-2019
 
+This is a personal revision exercise about what I have learn on React technology so far
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
