@@ -1,8 +1,8 @@
-# React basic concepts April-29-2019
+# React form handling April-29-2019
 
 This is little fun personal learning of form handling in React.
 
-I studied the following: 
+I studied the following:
 
 - How to render a mapped array in React
 - How to structure components for a one page React app
