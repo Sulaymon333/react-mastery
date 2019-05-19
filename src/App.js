@@ -1,111 +1,22 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Link, NavLink, Route } from 'react-router-dom';
 
-const Home = props => {
-  return (
-    <div>
-      <h1>Welcome to Home</h1>
-    </div>
-  );
+const Home = prop => {
+  return <h1>My name is Homepage</h1>;
 };
-
-const About = props => {
-  return (
-    <div>
-      <h1>About</h1>
-    </div>
-  );
-};
-
-const Contact = props => {
-  return (
-    <div>
-      <h1>Contact</h1>
-    </div>
-  );
-};
-const HTMLPage = props => {
-  return (
-    <div>
-      <h3>Let us discuss HTML</h3>
-    </div>
-  );
-};
-
-const CSSPage = props => {
-  return (
-    <div>
-      <h3>Let us discuss CSS</h3>
-    </div>
-  );
-};
-
-const JSPage = props => {
-  return (
-    <div>
-      <h3>Let us discuss JS</h3>
-    </div>
-  );
-};
-const REACTPage = props => {
-  return (
-    <div>
-      <h3>Let us discuss REACT</h3>
-    </div>
-  );
-};
-
-const Topics = props => {
-  console.log(props);
-  const path = props.match.path;
-  console.log(path);
-  return (
-    <div>
-      <h2>Topics</h2>
-      <hr />
-      <ul>
-        <li>
-          <Link to={`${path}/html`}>HTML</Link>
-        </li>
-
-        <li>
-          <Link to={`${path}/css`}>CSS</Link>
-        </li>
-        <li>
-          <Link to={`${path}/js`}>JAVASCRIPT</Link>
-        </li>
-        <li>
-          <Link to={`${path}/react`}>REACT</Link>
-        </li>
-      </ul>
-      <Route path={`${path}/html`} component={HTMLPage} />
-      <Route path={`${path}/css`} component={CSSPage} />
-      <Route path={`${path}/js`} component={JSPage} />
-      <Route path={`${path}/react`} component={REACTPage} />
-    </div>
-  );
-};
-
-const User = props => {
-  const username = props.match.params.username;
-  return (
-    <div>
-      <h4>Welcome {username}</h4>
-    </div>
-  );
-};
-
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        {/* the Link or NavLink are used in place of anchor tag in HTML. 
+      NavLink has more functionalities like active class and so on 
+      that can be styled as we wish */}
         <ul>
           <li>
-            {/* NavLink has more functionalities like active and so on */}
             <NavLink to="/">HOME</NavLink>
           </li>
           <li>
-            <NavLink to="/about">ABOUT</NavLink>
+            <Link to="/about">ABOUT</Link>
           </li>
           <li>
             <Link to="/contact">CONTACT</Link>
@@ -114,16 +25,30 @@ class App extends Component {
             <Link to="/topics">TOPICS</Link>
           </li>
         </ul>
-
-        <Switch>
-          <Route path="/about" render={About} />
-          <Route path="/contact" render={Contact} />
-          <Route path="/topics" render={Topics} />
-          <Route path="/" Component={Home} />
-        </Switch>
+        {/* The Route component is used to redirect the link to the appropriate page. it takes two props,
+        path and render or component. Component is commonly used. Note: the exact keyword makes sure 
+        that other pages are not rendered as addition to the home page */}
+        <Route exact path="/" component={Home} />
+        <Route
+          path="/about"
+          render={() => {
+            return <h1>My name is About page</h1>;
+          }}
+        />
+        <Route
+          path="/contact"
+          render={() => {
+            return <h1>My name is Contact page</h1>;
+          }}
+        />
+        <Route
+          path="/topics"
+          render={() => {
+            return <h1>My name Topics page</h1>;
+          }}
+        />
       </BrowserRouter>
     );
   }
 }
-
 export default App;
